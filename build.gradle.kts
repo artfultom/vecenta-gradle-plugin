@@ -17,3 +17,21 @@ gradlePlugin {
         implementationClass = "my.artfultom.vecenta.tools.VecentaPlugin"
     }
 }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("vecenta-plugin") {
+            from(components["kotlin"])
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
