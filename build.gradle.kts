@@ -4,8 +4,8 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.3.72"
 }
 
-group = "my.artfultom.vecenta.tools"
-version = "0.0.1-test4"
+group = "com.github.artfultom.vecenta.tools"
+version = "0.0.2"
 
 tasks.withType<Wrapper> {
     gradleVersion = "6.7.1"
@@ -14,7 +14,7 @@ tasks.withType<Wrapper> {
 gradlePlugin {
     val plugin by plugins.creating {
         id = "vecenta-plugin"
-        implementationClass = "my.artfultom.vecenta.tools.VecentaPlugin"
+        implementationClass = "com.github.artfultom.vecenta.tools.VecentaPlugin"
     }
 }
 
@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    api("com.github.artfultom:vecenta:0.0.1")
+    api("com.github.artfultom:vecenta:0.0.2")
 }
 
 publishing {

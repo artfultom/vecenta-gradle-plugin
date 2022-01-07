@@ -1,8 +1,8 @@
-package my.artfultom.vecenta.tools
+package com.github.artfultom.vecenta.tools
 
-import my.artfultom.vecenta.generate.Configuration
-import my.artfultom.vecenta.generate.DefaultCodeGenerateStrategy
-import my.artfultom.vecenta.generate.FileGenerator
+import com.github.artfultom.vecenta.generate.Configuration
+import com.github.artfultom.vecenta.generate.DefaultCodeGenerateStrategy
+import com.github.artfultom.vecenta.generate.FileGenerator
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
