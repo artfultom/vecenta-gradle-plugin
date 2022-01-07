@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "my.artfultom.vecenta.tools"
-version = "0.0.1"
+version = "0.0.1-test4"
 
 tasks.withType<Wrapper> {
     gradleVersion = "6.7.1"
@@ -20,9 +20,11 @@ gradlePlugin {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+    api("com.github.artfultom:vecenta:0.0.1")
 }
 
 publishing {
