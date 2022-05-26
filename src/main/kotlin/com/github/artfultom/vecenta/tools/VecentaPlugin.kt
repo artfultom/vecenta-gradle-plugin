@@ -1,8 +1,9 @@
 package com.github.artfultom.vecenta.tools
 
-import com.github.artfultom.vecenta.generate.Configuration
 import com.github.artfultom.vecenta.generate.DefaultCodeGenerateStrategy
 import com.github.artfultom.vecenta.generate.FileGenerator
+import com.github.artfultom.vecenta.generate.config.GenerateConfiguration
+import com.github.artfultom.vecenta.generate.config.GenerateMode
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -33,11 +34,25 @@ open class Generate : DefaultTask() {
     @TaskAction
     fun generate() {
         val strategy = DefaultCodeGenerateStrategy()
-        val config = Configuration(
+
+        if (serverPackage == null && clientPackage == null) {
+            return
+        }
+
+        var mode = GenerateMode.ALL
+        if (serverPackage == null) {
+            mode = GenerateMode.CLIENT
+        }
+        if (clientPackage == null) {
+            mode = GenerateMode.SERVER
+        }
+
+        val config = GenerateConfiguration(
                 Paths.get(schemaDir.toString()),
                 Paths.get(targetDir.toString()),
                 serverPackage,
-                clientPackage
+                clientPackage,
+                mode
         )
         FileGenerator(strategy).generateFiles(config)
     }
