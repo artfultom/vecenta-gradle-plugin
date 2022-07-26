@@ -13,7 +13,7 @@ tasks.withType<Wrapper> {
 
 gradlePlugin {
     val plugin by plugins.creating {
-        id = "vecenta-plugin"
+        id = "vecenta-gradle-plugin"
         implementationClass = "io.github.artfultom.vecenta.tools.VecentaPlugin"
     }
 }
@@ -35,7 +35,7 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("vecenta-plugin") {
+        create<MavenPublication>("vecenta-gradle-plugin") {
             from(components["kotlin"])
         }
     }
