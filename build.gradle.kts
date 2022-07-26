@@ -5,10 +5,10 @@ plugins {
 }
 
 group = "io.github.artfultom.vecenta.tools"
-version = "0.0.4"
+version = "0.0.5" + if (project.hasProperty("snapshot")) "-SNAPSHOT" else ""
 
 tasks.withType<Wrapper> {
-    gradleVersion = "6.7.1"
+    gradleVersion = "7.1"
 }
 
 gradlePlugin {
@@ -20,11 +20,17 @@ gradlePlugin {
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    maven {
+        url = uri("https://maven.pkg.github.com/artfultom/vecenta/")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
-    api("io.github.artfultom:vecenta:0.0.4")
+    api("io.github.artfultom:vecenta:0.0.5")
 }
 
 publishing {
@@ -34,6 +40,12 @@ publishing {
         }
     }
     repositories {
-        mavenLocal()
+        maven {
+            url = uri("https://maven.pkg.github.com/artfultom/vecenta-gradle-plugin/")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
