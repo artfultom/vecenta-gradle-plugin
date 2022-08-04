@@ -3,7 +3,7 @@
 ## Install
 ```
 plugins {
-    id 'vecenta-plugin' version '0.0.7'
+    id 'io.github.artfultom.vecenta.tools.vecenta-gradle-plugin' version '0.0.7'
 }
 ```
 
