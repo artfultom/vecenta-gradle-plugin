@@ -3,7 +3,7 @@
 ## Install
 ```
 plugins {
-    id 'vecenta-plugin' version '0.0.4'
+    id 'vecenta-plugin' version '0.0.7'
 }
 ```
 

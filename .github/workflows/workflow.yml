@@ -15,6 +15,4 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish package
-        run: ./gradlew clean build publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew clean build publishPlugins -Pgradle.publish.key=${{ secrets.PUBLISH_KEY }} -Pgradle.publish.secret=${{ secrets.PUBLISH_SECRET }}
