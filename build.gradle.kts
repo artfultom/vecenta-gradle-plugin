@@ -5,7 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.3.72"
 }
 
-group = "io.github.artfultom.vecenta.tools"
+group = "io.github.artfultom"
 version = "0.0.7"
 
 tasks.withType<Wrapper> {
@@ -14,10 +14,10 @@ tasks.withType<Wrapper> {
 
 gradlePlugin {
     val plugin by plugins.creating {
-        id = "io.github.artfultom.vecenta.tools.vecenta-gradle-plugin"
+        id = "io.github.artfultom.vecenta-gradle-plugin"
         implementationClass = "io.github.artfultom.vecenta.tools.VecentaPlugin"
-        displayName = "Vecenta"
-        description = "RPC Framework"
+        displayName = "Vecenta Gradle Plugin"
+        description = "Plugin for Vecenta Framework code generation. It allows generation of clients, servers, models and exceptions."
     }
 }
 
